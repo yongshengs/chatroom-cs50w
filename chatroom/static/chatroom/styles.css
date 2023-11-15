@@ -1,0 +1,126 @@
+/* Base HTML */
+.container-fluid {
+    justify-content: center;
+    align-items: center;
+}
+
+.left-side {
+    max-height: 500px; /* Adjust the maximum height as needed */
+    overflow-y: auto; /* Enable vertical scrolling within the div */
+}
+
+.right-side {
+    max-height: 500px; /* Adjust the maximum height as needed */
+    overflow-y: auto; /* Enable vertical scrolling within the div */
+}
+
+title {
+    padding: 5px;
+    margin: 5px;
+}
+
+/* Chat Preview and Chat History */
+.chat-preview-item {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+#chat-preview-username {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#chat-preview-time {
+    font-family: sans-serif;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.member-item {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+#chat-profile-image{
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%;
+}
+
+.message-container{
+    border: 1px solid gray;
+    padding: 2px;
+    margin: 2px;
+}
+
+.message-username {
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 15px;
+    margin: 2px;
+}
+
+.message-content {
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: 2px;
+}
+
+.message-timestamp {
+    font-style: italic;
+    color: gray;
+    font-family: sans-serif;
+    font-size: 12px;
+    margin: 2px;
+}
+
+
+/* Profile Page Styling */
+#profile-pic {
+    padding: 5px;
+}
+
+#profile-username {
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#profile-email {
+    font-family: sans-serif;
+    font-size: 14px;
+    font-style: italic;
+    padding: 5px;
+}
+
+#profile-bio {
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 5px;
+}
+
+#profile-edit {
+    padding: 5px;
+}
+
+#profile-image{
+    width: 75px; 
+    height: 75px; 
+    border-radius: 50%;
+}
+
+/* Edit Profile Page Styling */
+#edit-email, #edit-bio {
+    font-family: sans-serif;
+    padding: 5px;
+}
+
+#edit-save-button, #edit-profile-picture {
+    padding: 5px;
+}

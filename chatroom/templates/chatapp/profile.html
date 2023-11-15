@@ -1,0 +1,36 @@
+{% extends "chatapp/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    {{ profile.username }}'s Profile
+{% endblock %}
+
+{% block body_content %}
+    <div id="profile-heading">
+        <h1>{{ profile.username }}</h1>
+    </div>
+    
+    <div id="profile-item-{{ profile.id }}" class="member-item">
+        <div id="profile-pic">
+            {% if profile.profile_picture %}
+                <img id="profile-image" src="{{ profile.profile_picture.url }}" alt="{{ profile.username }}'s Profile Picture">
+            {% else %}
+                <img id="profile-image" src="{% static 'default.png' %}" alt="Default Profile Picture">
+            {% endif %}
+        </div>
+
+        <div id="profile-username">{{ profile.username }}</div>
+        <div id="profile-email">{{ profile.email }}</div>   
+        <div id="profile-bio">{{ profile.bio }}</div>  
+
+        <div id="profile-edit">
+            {% if profile.id == request.user.id %}
+                <a href="{% url 'edit_profile' profile.id %}">Edit Profile</a>    
+            {% else %}
+                <button class="start-chat">Start Chat</button>
+            {% endif %}
+        </div>
+
+    </div>
+{% endblock %}

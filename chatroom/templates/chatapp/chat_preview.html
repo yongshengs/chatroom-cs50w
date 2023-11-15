@@ -1,0 +1,30 @@
+{% load static %} 
+{% block chat_preview %}
+    <div class="chat-previews">
+        {% for chat, chat_id in latest_chats %}
+            <div id="chat-preview-{{ chat_id }}" class="chat-preview-item">
+                {% if chat.sender == request.user %}
+                    {% if chat.receiver.profile_picture %}
+                        <img id="chat-profile-image" src="{{ chat.receiver.profile_picture.url }}" alt="{{ chat.receiver.username }}">
+                    {% else %}
+                        <img id="chat-profile-image" src="{% static 'default.png' %}" alt="Default Profile Picture">
+                    {% endif %}
+                    <p id="chat-preview-username">
+                        <a class="username-link" href="{% url 'profile' chat.receiver.id %}">{{ chat.receiver.username }}</a>
+                    </p>
+                {% else %}
+                    {% if chat.sender.profile_picture %}
+                        <img id="chat-profile-image" src="{{ chat.sender.profile_picture.url }}" alt="{{ chat.sender.username }}">
+                    {% else %}
+                        <img id="chat-profile-image" src="{% static 'default.png' %}" alt="Default Profile Picture">
+                    {% endif %}
+                    <p id="chat-preview-username">
+                        <a class="username-link" href="{% url 'profile' chat.sender.id %}">{{ chat.sender.username }}</a>
+                    </p>
+                {% endif %}
+                <p>{{ chat.content }}</p>
+                <p id="chat-preview-time">sent on {{ chat.timestamp }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

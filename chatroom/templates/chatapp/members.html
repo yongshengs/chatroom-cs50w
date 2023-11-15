@@ -1,0 +1,47 @@
+{% extends "chatapp/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Members
+{% endblock %}
+
+{% block body_content %}
+    <h1>Members List</h1>
+    {% for member in all_members %}
+        <div id="member-item-{{ member.id }}" class="member-item">
+            <div id="profile-pic">
+                {% if member.profile_picture %}
+                    <img id="profile-image" src="{{ member.profile_picture.url }}" alt="{{ member.username }}">
+                {% else %}
+                    <img id="profile-image" src="{% static 'default.png' %}" alt="Default Profile Picture">
+                {% endif %}
+            </div>
+            <div id="username">
+                <a class="username-link" href="{% url 'profile' member.id %}">{{ member.username }}</a>
+            </div>
+            <div id="email">{{ member.email }}</div>
+
+            <button id="start-chat-{{ member.id }}" class="start-chat" onclick="openMessageField('{{ member.id }}')">Start Chat</button>
+
+            <form id="message-form-{{ member.id }}" action="{% url 'start_chat' member.id %}" method="post" style="display: none;">
+                {% csrf_token %}
+                <div id="message-box">
+                    <textarea id="message-field-{{ member.id }}" name="message-field" placeholder="Type in message here"></textarea>
+                </div>
+                <div id="message-send-button">
+                    <button type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    {% endfor %}
+    <script>
+        function openMessageField(memberId) {
+            var startChatButton = document.getElementById("start-chat-" + memberId);
+            startChatButton.style.display = "none";
+
+            var messageForm = document.getElementById("message-form-" + memberId);
+            messageForm.style.display = "block";
+        }
+    </script>
+{% endblock %}

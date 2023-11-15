@@ -1,0 +1,12 @@
+{% extends "chatroom/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h1>ChatRoom</h1>
+    <div>Hi, welcome to ChatRoom!</div>
+    <div>
+        <a href="{% url 'login' %}">Log in</a> 
+        or 
+        <a href="{% url 'register' %}"> register a new account</a> with us!
+    </div>
+{% endblock %}
