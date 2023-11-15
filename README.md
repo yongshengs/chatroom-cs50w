@@ -5,7 +5,7 @@
 ChatRoom is a real-time chat application developed to fulfill the requirements of my final capstone project for CS50W. This application allows registered users to engage in one-on-one conversations, view profiles, and update their personal information. The application is built using Django for the backend and HTML, CSS, and JavaScript for the frontend.
 
 ## Video Demo
-Video demo is avaialble here: https://youtu.be/N7-c7r4NlWQ
+Video demo is available here: https://youtu.be/N7-c7r4NlWQ
 
 ## Key Features
 
